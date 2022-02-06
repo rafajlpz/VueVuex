@@ -1,19 +1,26 @@
-import { createStore } from 'vuex'
+import { createStore } from "vuex";
 
 export default createStore({
   state: {
-    contador: 150
+    contador: 150,
   },
   mutations: {
-    incrementar(state){
-      state.contador = state.contador + 10
+    incrementar(state) {
+      state.contador = state.contador + 10;
     },
-    disminuir(state){
-      state.contador = state.contador - 10
-    }
+    disminuir(state) {
+      state.contador = state.contador - 10;
+    },
   },
   actions: {
+    accionIncrementar({ commit }) {
+      commit("incrementar");
+    },
+    accionDisminuir({ commit }) {
+      commit("disminuir");
+    },
   },
   modules: {
-  }
-})
+    
+  },
+});

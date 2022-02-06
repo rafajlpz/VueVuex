@@ -5,19 +5,20 @@
     >{{titulo}}: {{ contador }}
 
     </h1>
-    <button @click="incrementar">Aumentar</button>
-    <button @click="disminuir">Disminuir</button>
+    <button @click="accionIncrementar">Aumentar</button>
+    <BtnDisminuir />
   </div>
 </template>
 
 <script>
-import { mapState, mapMutations } from "vuex";
+import { mapState, mapMutations, mapActions } from "vuex";
+import BtnDisminuir from "../components/BtnDisminuir.vue";
 
 export default {
   name: "Home",
   components: {
-
-  },
+    BtnDisminuir
+},
   data() {
     return {
       titulo: 'Mi contador Vuex'
@@ -31,7 +32,7 @@ export default {
   },
   methods:{
     ...mapMutations(['incrementar']),
-    ...mapMutations(['disminuir'])
+    ...mapActions(['accionIncrementar'])
   }
 };
 </script>
